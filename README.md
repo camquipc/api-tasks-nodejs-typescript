@@ -3,12 +3,10 @@ Api test Nodejs con TypeScript
 
 
 # Install Dependencies
-´´´
+
 npm install
-´´´
 
-#Run App Serve
+# Run App Serve
 
-´´´
 npm run dev
-´´´
+
