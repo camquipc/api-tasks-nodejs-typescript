@@ -14,10 +14,12 @@ Api test Nodejs con Swagger Docs
 
 # Project Structure
 ```
+/dist
 /src
     /models
+    /cotrollers
     /routes
-index.js
+ app.ts
 ```
 
 # Install Dependencies

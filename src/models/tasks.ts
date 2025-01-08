@@ -1,4 +1,14 @@
-const tasks = [
+
+type Task = {
+    id: number;
+    title: string;
+    description: string;
+    completed: boolean;
+};
+
+
+
+const taskList: Array<Task>= [
     {
         id: 1,
         title: "Task 1",
@@ -14,4 +24,4 @@ const tasks = [
 ];
 
 
-module.exports = tasks;
+export default taskList;

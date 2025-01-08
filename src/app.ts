@@ -1,13 +1,13 @@
-const express = require('express');
-const tasksRouter = require('./src/Routers/tasks');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const swaggerUI = require('swagger-ui-express');
-const swaggerSpec = require('./swagger');
+import express from 'express';
+import { tasksRouter } from './routers/tasks';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import swaggerUI from 'swagger-ui-express';
+import swaggerSpec from '../swagger';
 
 const app = express();
 const port = 3000;
-app.use(cors('*'));
+app.use(cors({ origin: '*' }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
