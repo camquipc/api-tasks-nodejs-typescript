@@ -1,8 +1,14 @@
 
 import { Router} from 'express';
+import {body} from 'express-validator';
 import {createTask, deleteTask, getTasks, updateTask} from "../controllers/tasks";
 const tasksRouter = Router();
 
+const validateTask = [
+    body('title').isString().notEmpty(),
+    body('description').isString().notEmpty(),
+    body('completed').isBoolean().notEmpty()
+];
 
 
 /**
@@ -70,7 +76,7 @@ tasksRouter.get('/',getTasks);
  *        description: Server Error
  */
 
-tasksRouter.post('/',createTask);
+tasksRouter.post('/',validateTask,createTask);
 /** PATCH Methods */
     /**
      * @openapi

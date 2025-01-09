@@ -4,7 +4,7 @@
   "description": "Api test Nodejs con TypeScript",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc",
+    "build": "npx tsc && node dist/src/app.js",
     "start": "node dist/src/app.js",
     "dev": "ts-node-dev --respawn src/app.ts"
   },
@@ -23,9 +23,11 @@
     "typescript": "^4.9.4"
   },
   "dependencies": {
+    "@types/express-validator": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "express-validator": "^7.2.1",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
   }

@@ -1,6 +1,6 @@
-import { Request, Response } from "express";
-import Task from "../models/tasks";
 
+import Task from "../models/tasks";
+import {validationResult} from 'express-validator';
 export const getTasks = async (req,res) => {
   try {
     res.status(200).json(Task);
@@ -13,6 +13,8 @@ export const getTask = async (
   req,res
 ) => {
   try {
+
+    
     const { id } = req.params;
 
     const task = Task.find((task) => task.id === parseInt(id));
@@ -30,6 +32,11 @@ export const createTask = async (
   req,res
 ) => {
   try {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
     const { title, description, completed } = req.body;
     const id = Task.length + 1;
     const newTask = { id, title, description, completed };
@@ -44,6 +51,7 @@ export const updateTask = async (
   req,res
 ) => {
   try {
+   
     const { id } = req.params;
     const { title, description, completed } = req.body;
     const task = Task.find((task) => task.id === parseInt(id));
